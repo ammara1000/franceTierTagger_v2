@@ -3,19 +3,19 @@
 	"id": "francetiers_tagger",
 	"version": "${version}",
 	"name": "francetiers_tagger",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "you can see the pvp tier of players from FranceTiers under there names",
 	"authors": [
-		"Me!"
+		"amara1000"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://discord.gg/S88xZgmzm2",
+		"sources": "https://github.com/ammara1000/franceTierTagger_v2"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/francetiers_tagger/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"main": [
+		"client": [
 			"nerd.amara.Francetiers_tagger"
 		]
 	},
