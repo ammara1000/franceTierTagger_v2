@@ -2,14 +2,18 @@ package nerd.amara.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import nerd.amara.TierModifier;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(PlayerEntity.class)
-public class MixinPlayerEntity implements TierModifier {
-    private String suffix = "";
+public abstract class MixinPlayerEntity implements TierModifier {
+    @Shadow public abstract void remove(Entity.RemovalReason reason);
+
+    private String suffix = null;
     @Override
     public String getSuffix(){
         return suffix;
@@ -23,6 +27,9 @@ public class MixinPlayerEntity implements TierModifier {
         PlayerEntity self = (PlayerEntity) (Object) this;
         //String username = self.getName().getString();
         String sufix = this.suffix;
-        return original.copy().append(Text.literal(" "+sufix));
+        if (suffix!=null) {
+            return original.copy().append(Text.literal(" " + sufix));
+        }
+        return original;
     }
 }
