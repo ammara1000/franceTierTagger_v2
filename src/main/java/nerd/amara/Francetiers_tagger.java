@@ -21,10 +21,10 @@ public class Francetiers_tagger implements ClientModInitializer {
 			if (entity instanceof PlayerEntity){
 				if (((TierModifier) entity).getSuffix()==null){
 					new Thread(() -> {
-						System.out.println(entity.getName().getString());
+						//System.out.println(entity.getName().getString());
 						PlayerInfo info = Http.getJson("https://tierlistmc.fr/search_player.php?pseudo="+entity.getName().getString(), PlayerInfo.class);
 						if (info != null) {
-							((TierModifier)entity).setSuffix(" "+info.total_points);
+							((TierModifier)entity).setSuffix("| "+ShowedTier.showed_tier(info));
 						}
 					}).start();
 				}
