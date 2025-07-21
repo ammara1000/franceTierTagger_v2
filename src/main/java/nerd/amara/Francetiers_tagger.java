@@ -17,6 +17,10 @@ public class Francetiers_tagger implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
+		//PlayerInfo info_ = Http.getJson("https://tierlistmc.fr/search_player.php?pseudo="+"amara1000", PlayerInfo.class);
+		//if (info_ != null) {
+		//	System.out.println(ShowedTier.showed_tier(info_));
+		//}
 		ClientEntityEvents.ENTITY_LOAD.register(((entity, clientWorld) ->{
 			if (entity instanceof PlayerEntity){
 				if (((TierModifier) entity).getSuffix()==null){
