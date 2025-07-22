@@ -1,0 +1,13 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "francetiers_tagger:gamemodes/axe.png",
+      "height": "150",
+      "ascent": "150",
+      "chars": [
+        "\uEF00"
+      ]
+    }
+  ]
+}

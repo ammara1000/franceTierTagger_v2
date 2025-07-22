@@ -30,5 +30,11 @@
 	},
 	"suggests": {
 		"another-mod": "*"
-	}
+	},
+	"client_resources": [
+		{
+			"id": "francetiers_tagger:lol",
+			"enabled": true
+		}
+	]
 }
