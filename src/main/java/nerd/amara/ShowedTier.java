@@ -25,6 +25,33 @@ public class ShowedTier {
             Map.entry("RHT1", 15),
             Map.entry("HT1", 16)
     );
+    private static Map<String,String> tiers_emoji=Map.ofEntries(
+            Map.entry("LT5", "\uEE00"),
+            Map.entry("HT5", "\uEE01"),
+            Map.entry("LT4", "\uEE02"),
+            Map.entry("HT4", "\uEE03"),
+            Map.entry("LT3", "\uEE04"),
+            Map.entry("HT3", "\uEE05"),
+            Map.entry("LT2", "\uEE06"),
+            Map.entry("HT2", "\uEE07"),
+            Map.entry("LT1", "\uEE08"),
+            Map.entry("HT1", "\uEE09"),
+            Map.entry("RLT2", "\uEE0a"),
+            Map.entry("RHT2", "\uEE0b"),
+            Map.entry("RLT1", "\uEE0c"),
+            Map.entry("RHT1", "\uEE0d")
+    );
+    private static Map<String,String> gamemode_emoji=Map.ofEntries(
+            Map.entry("Mace", "\uEF00"),
+            Map.entry("SMP", "\uEF01"),
+            Map.entry("UHC", "\uEF02"),
+            Map.entry("Pot", "\uEF03"),
+            Map.entry("Crystal", "\uEF04"),
+            Map.entry("Sword", "\uEF05"),
+            Map.entry("DiaSMP", "\uEF06"),
+            Map.entry("NethPot", "\uEF07"),
+            Map.entry("Axe", "\uEF08")
+    );
     public static String showed_tier(PlayerInfo info){
         if (info==null){
             return "";
@@ -72,7 +99,7 @@ public class ShowedTier {
                 //System.out.println("--------------4" + info.pseudo);//---------------------
                 if (best_actual_gamemode == null){
                     //System.out.println("--------------5" + info.pseudo);//---------------------
-                    return info.retired_tiers.get(best_retired_gamemode).tier + " " + info.retired_tiers.get(best_retired_gamemode).category;
+                    return "| "+ tiers_emoji.get( info.retired_tiers.get(best_retired_gamemode).tier ) + "" + gamemode_emoji.get( info.retired_tiers.get(best_retired_gamemode).category );
                 }
                 else {
                     //System.out.println();//---------------------
@@ -85,7 +112,7 @@ public class ShowedTier {
             //System.out.println("--------------02" + info.pseudo);//---------------------
             if (best_actual_gamemode != null) {
                 //System.out.println("--------------6" + info.pseudo);
-                return "| "+info.tiers.get(best_actual_gamemode).tier + " " + info.tiers.get(best_actual_gamemode).category;
+                return "| "+ tiers_emoji.get( info.tiers.get(best_actual_gamemode).tier ) + "" + gamemode_emoji.get( info.tiers.get(best_actual_gamemode).category );
             }
         }
         //System.out.println("--------------7" + info.pseudo);//---------------------
