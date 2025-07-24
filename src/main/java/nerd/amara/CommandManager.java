@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.argument;
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
+import static net.minecraft.text.StringVisitable.styled;
 
 public class CommandManager {
     public static void registerCommands(CommandDispatcher<FabricClientCommandSource> dispatcher) {
@@ -25,7 +27,8 @@ public class CommandManager {
                             String name = StringArgumentType.getString(context, "name");
                             PlayerInfo info = Http.getJson("https://tierlistmc.fr/search_player.php?pseudo="+name, PlayerInfo.class);
                             if (info != null) {
-                                MinecraftClient.getInstance().player.sendMessage(Text.of(ShowedTier.showed_message(info)),false);
+                                Text text=Text.literal(ShowedTier.showed_message(info)).styled(s -> s.withColor(Formatting.AQUA));
+                                MinecraftClient.getInstance().player.sendMessage(text,false);
                             }
 
 
