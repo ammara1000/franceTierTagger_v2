@@ -9,6 +9,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 
 import java.util.Collection;
 import java.util.List;
@@ -27,7 +28,7 @@ public class CommandManager {
                             String name = StringArgumentType.getString(context, "name");
                             PlayerInfo info = Http.getJson("https://tierlistmc.fr/search_player.php?pseudo="+name, PlayerInfo.class);
                             if (info != null) {
-                                Text text=Text.literal(ShowedTier.showed_message(info)).styled(s -> s.withColor(Formatting.WHITE));
+                                Text text=Text.literal(ShowedTier.showed_message(info)).styled(s -> s.withColor(Formatting.WHITE).withFont(Identifier.of("frtl","lol")));
                                 MinecraftClient.getInstance().player.sendMessage(text,false);
                             }
 
