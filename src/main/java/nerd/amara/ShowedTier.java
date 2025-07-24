@@ -39,7 +39,7 @@ public class ShowedTier {
             Map.entry("RLT2", "\uEE0a"),
             Map.entry("RHT2", "\uEE0b"),
             Map.entry("RLT1", "\uEE0c"),
-            Map.entry("RHT1", "\uEE0d   ")
+            Map.entry("RHT1", "\uEE0d")
     );
     private static Map<String,String> gamemode_emoji=Map.ofEntries(
             Map.entry("Mace", "\uEF00"),
@@ -120,12 +120,12 @@ public class ShowedTier {
     }
     public static String showed_message(PlayerInfo info){
         String msg="";
-        msg=msg+"PLAYER: "+info.pseudo+" TOP "+info.global_rank+" ("+info.total_points+" points) \nTIERS:";
+        msg=msg+"\uef09 FRANCE TIERS \uef09\nPLAYER: "+info.pseudo+" TOP "+info.global_rank+" ("+info.total_points+" points) \nTIERS:";
         if (info.tiers!=null) {
             for (String key : info.tiers.keySet()) {
                 Tier value = info.tiers.get(key);
                 if (info.tiers.get(key).tier!=null){
-                    msg=msg+"\n      "+value.tier+" "+key;
+                    msg=msg+"\n      "+tiers_emoji.get( value.tier )+" "+gamemode_emoji.get( key );
                 }
             }
         }
@@ -137,7 +137,7 @@ public class ShowedTier {
                 msg = msg + "\nRETIRED TIERS:";
                 for (int i = 0; i < info.retired_tiers.size(); i++) {
                     Tier element = info.retired_tiers.get(i);
-                    msg = msg + "\n      " + element.tier + " " + element.category;
+                    msg = msg + "\n      " + tiers_emoji.get( element.tier ) + " " + gamemode_emoji.get( element.category );
                 }
             }
         }
