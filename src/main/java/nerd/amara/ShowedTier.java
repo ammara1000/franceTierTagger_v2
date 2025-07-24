@@ -39,7 +39,7 @@ public class ShowedTier {
             Map.entry("RLT2", "\uEE0a"),
             Map.entry("RHT2", "\uEE0b"),
             Map.entry("RLT1", "\uEE0c"),
-            Map.entry("RHT1", "\uEE0d")
+            Map.entry("RHT1", "\uEE0d   ")
     );
     private static Map<String,String> gamemode_emoji=Map.ofEntries(
             Map.entry("Mace", "\uEF00"),
@@ -105,7 +105,7 @@ public class ShowedTier {
                     //System.out.println();//---------------------
                     if (importance.get(info.retired_tiers.get(best_retired_gamemode).tier) > importance.get(info.tiers.get(best_actual_gamemode).tier)) {
                         System.out.println("--------------5" + info.pseudo);//---------------------
-                        return info.retired_tiers.get(best_retired_gamemode).tier + " " + info.retired_tiers.get(best_retired_gamemode).category;
+                        return "| "+ tiers_emoji.get( info.retired_tiers.get(best_retired_gamemode).tier ) + "" + gamemode_emoji.get( info.retired_tiers.get(best_retired_gamemode).category );
                     }
                 }
             }
@@ -117,5 +117,33 @@ public class ShowedTier {
         }
         //System.out.println("--------------7" + info.pseudo);//---------------------
         return "";
+    }
+    public static String showed_message(PlayerInfo info){
+        String msg="";
+        msg=msg+"PLAYER: "+info.pseudo+" TOP "+info.global_rank+" ("+info.total_points+" points) \nTIERS:";
+        if (info.tiers!=null) {
+            for (String key : info.tiers.keySet()) {
+                Tier value = info.tiers.get(key);
+                if (info.tiers.get(key).tier!=null){
+                    msg=msg+"\n      "+value.tier+" "+key;
+                }
+            }
+        }
+        else {
+            return "PLAYER UNRANKED";
+        }
+        if (info.retired_tiers!=null) {
+            if (!info.retired_tiers.isEmpty()) {
+                msg = msg + "RETIRED TIERS:";
+                for (int i = 0; i < info.retired_tiers.size(); i++) {
+                    Tier element = info.retired_tiers.get(i);
+                    msg = msg + "\n      " + element.tier + " " + element.category;
+                }
+            }
+        }
+        else {
+            return "PLAYER UNRANKED";
+        }
+        return msg;
     }
 }

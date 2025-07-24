@@ -4,6 +4,7 @@ import nerd.amara.tiers.PlayerInfo;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientEntityEvents;
 import net.minecraft.entity.player.PlayerEntity;
 import org.slf4j.Logger;
@@ -17,6 +18,9 @@ public class Francetiers_tagger implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
+		ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+			CommandManager.registerCommands(dispatcher);
+		});
 		//PlayerInfo info_ = Http.getJson("https://tierlistmc.fr/search_player.php?pseudo="+"amara1000", PlayerInfo.class);
 		//if (info_ != null) {
 		//	System.out.println(ShowedTier.showed_tier(info_));
