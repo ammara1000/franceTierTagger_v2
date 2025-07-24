@@ -120,12 +120,12 @@ public class ShowedTier {
     }
     public static String showed_message(PlayerInfo info){
         String msg="";
-        msg=msg+"\uef09 FRANCE TIERS \uef09\nPLAYER: "+info.pseudo+" TOP "+info.global_rank+" ("+info.total_points+" points) \nTIERS:";
+        msg=msg+"\ued09 FRANCETIERS \ued09\nPLAYER: "+info.pseudo+"\nTOP "+info.global_rank+" ("+info.total_points+" points) \nTIERS:";
         if (info.tiers!=null) {
             for (String key : info.tiers.keySet()) {
                 Tier value = info.tiers.get(key);
                 if (info.tiers.get(key).tier!=null){
-                    msg=msg+"\n      "+tiers_emoji.get( value.tier )+" "+gamemode_emoji.get( key );
+                    msg=msg+"\n      "+tiers_emoji.get( value.tier )+" "+gamemode_emoji.get( key )+" "+key;
                 }
             }
         }
@@ -137,7 +137,7 @@ public class ShowedTier {
                 msg = msg + "\nRETIRED TIERS:";
                 for (int i = 0; i < info.retired_tiers.size(); i++) {
                     Tier element = info.retired_tiers.get(i);
-                    msg = msg + "\n      " + tiers_emoji.get( element.tier ) + " " + gamemode_emoji.get( element.category );
+                    msg = msg + "\n      " + tiers_emoji.get( element.tier ) + " " + gamemode_emoji.get( element.category ) + " " + element.category;
                 }
             }
         }
