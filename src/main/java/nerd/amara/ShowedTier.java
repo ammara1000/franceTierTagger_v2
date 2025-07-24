@@ -134,7 +134,7 @@ public class ShowedTier {
         }
         if (info.retired_tiers!=null) {
             if (!info.retired_tiers.isEmpty()) {
-                msg = msg + "RETIRED TIERS:";
+                msg = msg + "\nRETIRED TIERS:";
                 for (int i = 0; i < info.retired_tiers.size(); i++) {
                     Tier element = info.retired_tiers.get(i);
                     msg = msg + "\n      " + element.tier + " " + element.category;
