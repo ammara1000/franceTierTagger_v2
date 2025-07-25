@@ -32,7 +32,7 @@ public abstract class MixinPlayerEntity implements TierModifier {
         //String username = self.getName().getString();
         String sufix = this.suffix;
         if (suffix!=null) {
-            return original.copy().append(Text.literal(" " + sufix).styled(s -> s.withColor(Formatting.WHITE).withFont(Identifier.of("frtl","lol"))));
+            return original.copy().append(Text.literal(sufix).styled(s -> s.withColor(Formatting.WHITE)).styled(s -> s.withFont(Identifier.of("frtl","lol"))));
         }
         return original;
     }
