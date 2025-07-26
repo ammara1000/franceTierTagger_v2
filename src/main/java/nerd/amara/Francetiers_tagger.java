@@ -21,6 +21,7 @@ public class Francetiers_tagger implements ClientModInitializer {
 		ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
 			CommandManager.registerCommands(dispatcher);
 		});
+		String lol = "\u0000";
 		//PlayerInfo info_ = Http.getJson("https://tierlistmc.fr/search_player.php?pseudo="+"amara1000", PlayerInfo.class);
 		//if (info_ != null) {
 		//	System.out.println(ShowedTier.showed_tier(info_));

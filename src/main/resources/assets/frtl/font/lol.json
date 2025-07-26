@@ -33,6 +33,16 @@
 				"\uEE07\uEE08\uEE09\uEE0a\uEE0b\uEE0c\uEE0d"
             ]
         },
+        {
+            "type": "bitmap",
+            "file": "frtl:font/lol.png",
+            "ascent": 1,
+            "height": 1,
+            "width": 1,
+            "chars": [
+                "\uEEEE"
+            ]
+        },
 		{
             "type": "reference",
             "id": "minecraft:default"

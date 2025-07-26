@@ -99,20 +99,20 @@ public class ShowedTier {
                 //System.out.println("--------------4" + info.pseudo);//---------------------
                 if (best_actual_gamemode == null){
                     //System.out.println("--------------5" + info.pseudo);//---------------------
-                    return  tiers_emoji.get( info.retired_tiers.get(best_retired_gamemode).tier ) + "" + gamemode_emoji.get( info.retired_tiers.get(best_retired_gamemode).category );
+                    return "\uEEEE\uEEEE\uEEEE\uEEEE" + tiers_emoji.get( info.retired_tiers.get(best_retired_gamemode).tier ) + "" + gamemode_emoji.get( info.retired_tiers.get(best_retired_gamemode).category );
                 }
                 else {
                     //System.out.println();//---------------------
                     if (importance.get(info.retired_tiers.get(best_retired_gamemode).tier) > importance.get(info.tiers.get(best_actual_gamemode).tier)) {
                         System.out.println("--------------5" + info.pseudo);//---------------------
-                        return  tiers_emoji.get( info.retired_tiers.get(best_retired_gamemode).tier ) + "" + gamemode_emoji.get( info.retired_tiers.get(best_retired_gamemode).category );
+                        return "\uEEEE\uEEEE\uEEEE\uEEEE" + tiers_emoji.get( info.retired_tiers.get(best_retired_gamemode).tier ) + "" + gamemode_emoji.get( info.retired_tiers.get(best_retired_gamemode).category );
                     }
                 }
             }
             //System.out.println("--------------02" + info.pseudo);//---------------------
             if (best_actual_gamemode != null) {
                 //System.out.println("--------------6" + info.pseudo);
-                return  tiers_emoji.get( info.tiers.get(best_actual_gamemode).tier ) + "" + gamemode_emoji.get( info.tiers.get(best_actual_gamemode).category );
+                return "\uEEEE\uEEEE\uEEEE\uEEEE" + tiers_emoji.get( info.tiers.get(best_actual_gamemode).tier ) + "" + gamemode_emoji.get( info.tiers.get(best_actual_gamemode).category );
             }
         }
         //System.out.println("--------------7" + info.pseudo);//---------------------
