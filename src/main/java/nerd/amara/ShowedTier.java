@@ -5,6 +5,7 @@ import nerd.amara.tiers.Tier;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class ShowedTier {
     private static Map<String,Integer> importance=Map.ofEntries(
@@ -59,6 +60,22 @@ public class ShowedTier {
         //System.out.println("--------------1"+info.pseudo);//--------------------
         String best_actual_gamemode=null;
         Integer best_retired_gamemode=null;
+        ModConfig config = ConfigManager.getConfig();
+        if (!Objects.equals(config.gamemode, "All")) {
+            if (info.tiers != null) {
+                if (info.tiers.get(config.gamemode).tier != null) {
+                    return "\uEEEE\uEEEE\uEEEE\uEEEE" + tiers_emoji.get(info.tiers.get(config.gamemode).tier) + "" + gamemode_emoji.get(info.tiers.get(config.gamemode).category);
+                }
+            }
+            if (info.retired_tiers != null) {
+                for (int i = 0; i < info.retired_tiers.size(); i++) {
+                    Tier element = info.retired_tiers.get(i);
+                    if (Objects.equals(element.category, config.gamemode)) {
+                        return "\uEEEE\uEEEE\uEEEE\uEEEE" + tiers_emoji.get(info.retired_tiers.get(i).tier) + "" + gamemode_emoji.get(info.retired_tiers.get(i).category);
+                    }
+                }
+            }
+        }
         if (info.tiers!=null) {
             //System.out.println("--------------2" + info.pseudo);//---------------------
             for (String key : info.tiers.keySet()) {

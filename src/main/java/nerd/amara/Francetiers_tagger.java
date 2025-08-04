@@ -18,6 +18,8 @@ public class Francetiers_tagger implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
+		Keybinds.RedgisterKeybinds();
+		ConfigManager.load();
 		ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
 			CommandManager.registerCommands(dispatcher);
 		});
