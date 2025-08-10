@@ -54,13 +54,16 @@ public class ShowedTier {
             Map.entry("Axe", "\uEF08")
     );
     public static String showed_tier(PlayerInfo info){
+        ModConfig config = ConfigManager.getConfig();
+        if (!Objects.equals(config.gamemode, "Mod Off")){
+            return "";
+        }
         if (info==null){
             return "";
         }
         //System.out.println("--------------1"+info.pseudo);//--------------------
         String best_actual_gamemode=null;
         Integer best_retired_gamemode=null;
-        ModConfig config = ConfigManager.getConfig();
         if (!Objects.equals(config.gamemode, "All")) {
             if (info.tiers != null) {
                 if (info.tiers.get(config.gamemode).tier != null) {

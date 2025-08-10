@@ -29,7 +29,8 @@ public class Keybinds {
             "SMP",
             "Axe",
             "DiaSMP",
-            "Mace"
+            "Mace",
+            "Mod Off"
     );
     public static void RedgisterKeybinds(){
         change_gamemode=KeyBindingHelper.registerKeyBinding(new KeyBinding(
