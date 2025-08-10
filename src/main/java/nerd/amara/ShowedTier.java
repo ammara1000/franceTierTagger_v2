@@ -55,7 +55,7 @@ public class ShowedTier {
     );
     public static String showed_tier(PlayerInfo info){
         ModConfig config = ConfigManager.getConfig();
-        if (!Objects.equals(config.gamemode, "Mod Off")){
+        if (Objects.equals(config.gamemode, "Mod Off")){
             return "";
         }
         if (info==null){

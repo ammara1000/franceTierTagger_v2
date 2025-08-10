@@ -45,7 +45,7 @@ public class Keybinds {
                 String actual_gamemode=config.gamemode;
                 Integer index = gamemodes.indexOf(actual_gamemode);
                 index++;
-                if (index > 9){
+                if (index > 10){
                     index=0;
                 }
                 String new_gamemode=gamemodes.get(index);
