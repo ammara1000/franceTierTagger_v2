@@ -33,7 +33,7 @@ public class Francetiers_tagger implements ClientModInitializer {
 				if (((TierModifier) entity).getSuffix()==null){
 					new Thread(() -> {
 						//System.out.println(entity.getName().getString());
-						PlayerInfo info = Http.getJson("https://tierlistmc.fr/search_player.php?pseudo="+entity.getName().getString(), PlayerInfo.class);
+						PlayerInfo info = Http.getJson("https://francetiers.fr/search_player.php?pseudo="+entity.getName().getString(), PlayerInfo.class);
 						if (info != null) {
 							((TierModifier)entity).setSuffix(ShowedTier.showed_tier(info));
 						}
