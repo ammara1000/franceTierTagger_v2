@@ -26,7 +26,7 @@ public class CommandManager {
                         .suggests(playerNameSuggester())
                         .executes(context -> {
                             String name = StringArgumentType.getString(context, "name");
-                            PlayerInfo info = Http.getJson("https://tierlistmc.fr/search_player.php?pseudo="+name, PlayerInfo.class);
+                            PlayerInfo info = Http.getJson("https://francetiers.fr/search_player.php?pseudo="+name, PlayerInfo.class);
                             if (info != null) {
                                 Text text=Text.literal(ShowedTier.showed_message(info)).styled(s -> s.withColor(Formatting.WHITE).withFont(Identifier.of("frtl","lol")));
                                 MinecraftClient.getInstance().player.sendMessage(text,false);
