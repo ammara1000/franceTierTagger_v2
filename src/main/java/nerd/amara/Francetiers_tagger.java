@@ -15,6 +15,7 @@ import java.util.Objects;
 public class Francetiers_tagger implements ClientModInitializer {
 	public static final String MOD_ID = "francetiers_tagger";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static String web_url="";
 
 	@Override
 	public void onInitializeClient() {
@@ -33,7 +34,7 @@ public class Francetiers_tagger implements ClientModInitializer {
 				if (((TierModifier) entity).getSuffix()==null){
 					new Thread(() -> {
 						//System.out.println(entity.getName().getString());
-						PlayerInfo info = Http.getJson("https://francetiers.fr/search_player.php?pseudo="+entity.getName().getString(), PlayerInfo.class);
+						PlayerInfo info = Http.getJson(web_url+entity.getName().getString(), PlayerInfo.class);
 						if (info != null) {
 							((TierModifier)entity).setSuffix(ShowedTier.showed_tier(info));
 						}

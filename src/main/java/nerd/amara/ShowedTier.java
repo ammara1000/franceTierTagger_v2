@@ -9,6 +9,7 @@ import java.util.Objects;
 
 public class ShowedTier {
     private static Map<String,Integer> importance=Map.ofEntries(
+            Map.entry("N/A", 0),
             Map.entry("LT6", 1),
             Map.entry("HT6", 2),
             Map.entry("LT5", 3),
@@ -27,6 +28,7 @@ public class ShowedTier {
             Map.entry("HT1", 16)
     );
     private static Map<String,String> tiers_emoji=Map.ofEntries(
+            Map.entry("N/A", ""),
             Map.entry("LT5", "\uEE00"),
             Map.entry("HT5", "\uEE01"),
             Map.entry("LT4", "\uEE02"),
@@ -66,7 +68,7 @@ public class ShowedTier {
         Integer best_retired_gamemode=null;
         if (!Objects.equals(config.gamemode, "All")) {
             if (info.tiers != null) {
-                if (info.tiers.get(config.gamemode).tier != null) {
+                if (!Objects.equals(info.tiers.get(config.gamemode).tier, "N/A")) {
                     return "\uEEEE\uEEEE\uEEEE\uEEEE" + tiers_emoji.get(info.tiers.get(config.gamemode).tier) + "" + gamemode_emoji.get(info.tiers.get(config.gamemode).category);
                 }
             }
@@ -83,7 +85,7 @@ public class ShowedTier {
             //System.out.println("--------------2" + info.pseudo);//---------------------
             for (String key : info.tiers.keySet()) {
                 Tier value = info.tiers.get(key);
-                if (best_actual_gamemode==null & info.tiers.get(key).tier!=null){
+                if (best_actual_gamemode==null & !Objects.equals(info.tiers.get(key).tier, "N/A")){
                     best_actual_gamemode = key;
                 }
                 else {
@@ -91,7 +93,7 @@ public class ShowedTier {
                     //System.out.println("best: "+best_actual_gamemode);//---------------------
                     //System.out.println(info.tiers.get(best_actual_gamemode));//---------------------
                     //System.out.println(info.tiers.get(key));//---------------------
-                    if (info.tiers.get(key).tier!=null){
+                    if (!Objects.equals(info.tiers.get(key).tier, "N/A")){
                         if (importance.get(info.tiers.get(best_actual_gamemode).tier) < importance.get(info.tiers.get(key).tier)) {
                             best_actual_gamemode = key;
                         }
@@ -144,7 +146,7 @@ public class ShowedTier {
         if (info.tiers!=null) {
             for (String key : info.tiers.keySet()) {
                 Tier value = info.tiers.get(key);
-                if (info.tiers.get(key).tier!=null){
+                if (!Objects.equals(info.tiers.get(key).tier, "N/A")){
                     msg=msg+"\n      "+tiers_emoji.get( value.tier )+" "+gamemode_emoji.get( key )+" "+key;
                 }
             }

@@ -57,9 +57,10 @@ public class Keybinds {
                 if (world != null) {
                     for (AbstractClientPlayerEntity player : world.getPlayers()) {
                         new Thread(() -> {
-                            PlayerInfo info = Http.getJson("https://tierlistmc.fr/search_player.php?pseudo="+player.getName().getString(), PlayerInfo.class);
+                            PlayerInfo info = Http.getJson(Francetiers_tagger.web_url+player.getName().getString(), PlayerInfo.class);
                             if (info != null) {
                                 ((TierModifier)player).setSuffix(ShowedTier.showed_tier(info));
+                                //player.sendMessage(Text.literal(ShowedTier.showed_tier(info)),false);//----
                             }
                         }).start();
                     }
